@@ -19,20 +19,11 @@ function reduceToTotal(array, start=0){
    return array.reduce(((sum, val) => sum + val), start)
 }
 
-function reduceToAllTrue(array){
-  for (let i = 0; i < array.length; i++) {
-    if (!!!array[i]) {
-      return false
-    }
-  }
-  return true
-}
 
 function reduceToAnyTrue(array){
-  for (let i = 0; i < array.length; i++){
-    if (!!array[i]) {
-      return true
-    }
-  }
-  return false
+return array.reduce(((sum, val) => !!sum != !!val))
+}
+
+function reduceToAllTrue(array){
+  return array.reduce(((sum, val) => !!sum == !!val))
 }
